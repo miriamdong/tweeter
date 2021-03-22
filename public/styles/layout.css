@@ -32,10 +32,13 @@ It should be center aligned to the body
 It should have the same colour background as the <body> element
  */
 
+.container {
+  display: table;
 
+}
 
 main {
-  display: table;
+  display: table-cell;
   margin: auto;
   position: relative;
   width: 90%;

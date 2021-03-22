@@ -16,7 +16,7 @@ header {
   background-color: powderblue;
 }
 
-div {
+header div {
   display: flex;
   height: 200px;
   width: 50%;
