@@ -35,6 +35,7 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
+      <button><span><b>Write </b>a new tweet</span></button>
     </nav>
 
     <header>
@@ -43,19 +44,45 @@
       </div>
       <br>
       <div>
-        <h2>Your Name</h2>
+        <h2><b>FirstName</b>LastName</h2>
       </div>
     </header>
 
     <!-- Page-specific (main) content here -->
+    <button onclick="topFunction()" id="go-to-top" title="Go to top">Top</button>
+    <script>
+      //Get the button:
+      const topButton = document.getElementById("go-to-top");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+          topButton.style.display = "block";
+        } else {
+          topButton.style.display = "none";
+        }
+      }
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+    </script>
+
+
     <main class="container">
+
       <section class="new-tweet">
         <form action="/tweets/" class="tweet-box-content" method="post">
           <label for="tweet-text">What are you humming about?</label><br>
           <!-- <textarea id="tweet-text" name="text" autofocus="" oninput="callFunction()" placeholder="What's happening?"
             spellcheck="false"></textarea> -->
 
-          <textarea id="tweet-text" name="text" onkeyup="charcountupdate(this.value)">
+          <textarea id="tweet-text" name="text" autofocus="" onkeyup="charcountupdate(this.value)">
             </textarea>
 
           <script>
@@ -78,7 +105,6 @@
               charcountupdate();
             }
           </script>
-
           <div class="update-status">
             <button id="tweet" type="submit">Tweet</button>
             <div class="add-extra">
@@ -99,15 +125,12 @@
               src="https://images.vexels.com/media/users/3/147101/isolated/preview/b4a49d4b864c74bb73de63f080ad7930-instagram-profile-button-by-vexels.png"
               alt=''>
             <span class="name">
-              <p>Her Name<b id="user-name">@herusername</b></p>
+              <p>Her Name<b class="user-name">@herusername</b></p>
             </span>
           </header>
-
-
           <article class="body">
             <h3>Hello world!</h3>
           </article>
-
           <footer>
             <div class="more-options"> 10 days ago <i class="fa fa-ellipsis-h"></i></div>
             <div class="intercations">
@@ -126,7 +149,6 @@
         <!--End of wall-->
       </section>
     </main>
-
   </body>
 
 </html>

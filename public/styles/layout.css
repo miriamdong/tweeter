@@ -44,3 +44,38 @@ main {
   width: 90%;
   vertical-align: middle;
 }
+
+#go-to-top {
+  content: "/22BC";
+  color: #fff;
+  background: blue;
+  padding: 5px 3px;
+  /* Hidden by default */
+  display: none;
+  /* Fixed/sticky position */
+  position: fixed;
+  /* Place the button at the bottom of the page */
+  bottom: 0px;
+  right: 5px;
+  /* Make sure it does not overlap */
+  z-index: 99;
+  /* Remove borders */
+  border: none;
+  /* Remove outline */
+  outline: none;
+  color: white;
+  /* Add a mouse pointer on hover */
+  cursor: pointer;
+  /* Increase font size */
+  font-size: 18px;
+  margin: 0 3em 3em 0;
+  /* Rounded corners */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+#go-to-top:hover {
+  background-color: #555;
+  /* Add a dark-grey background on hover */
+}

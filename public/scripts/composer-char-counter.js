@@ -14,6 +14,51 @@ $(document).ready(function() {
     }
   }
 
+  $("button").click(function() {
+    $(".new-tweet").animate({
+      height: 'toggle'
+    });
+  });
+
+  // $(window).scroll(function() {
+  //   if ($(this).scrollTop()) {
+  //     $('#toTop').fadeIn();
+  //   } else {
+  //     $('#toTop').fadeOut();
+  //   }
+  // });
+
+  // $("#toTop").click(function() {
+  //   $("html, body").animate({
+  //     scrollTop: 0
+  //   }, 1000);
+  // });
+
+  //Get the button:
+  const topButton = document.getElementById("go-to-top");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  $(window).onscroll = function() {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+      topButton.style.display = "block";
+    } else {
+      topButton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+
+
+
+
   // $('.add-extra').hover(showinfo);
   // $('.add-extra').on('click', whenClick);
 

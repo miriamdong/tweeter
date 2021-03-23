@@ -11,10 +11,51 @@ nav {
   background-color: #4056a1;
   color: #FFFFFF;
   padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav span {
+  display: flex;
   font-weight: 300;
   font-family: Bungee;
+  align-items: center;
+}
 
+nav button {
+  background-color: inherit;
+  border: none;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+
+}
+
+nav button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+nav button span:after {
+  content: '\22BB';
+  position: absolute;
+  opacity: 0;
+  top: -10;
+  right: 0;
+  transition: 0.5s;
+}
+
+nav button:hover span {
+  padding-top: 15px;
+}
+
+nav button:hover span:after {
+  opacity: 1;
+  right: 0;
 }

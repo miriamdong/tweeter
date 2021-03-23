@@ -167,13 +167,13 @@ span.name p {
 }
 
 
-#user-name {
+b.user-name {
   color: #f4f1ec;
   display: flex;
   justify-content: flex-end;
 }
 
-#user-name b:hover {
+b.user-name:hover {
   color: rgb(164, 205, 238);
   opacity: 80%;
 }
