@@ -166,14 +166,22 @@ span.name p {
   justify-content: space-between;
 }
 
+.tweet:hover .user-name {
+  color: rgb(156, 203, 241);
+  opacity: 1;
+}
 
-b.user-name {
+.user-name {
   color: #f4f1ec;
   display: flex;
   justify-content: flex-end;
 }
 
-b.user-name:hover {
+.user-name p {
+  color: rgb(156, 203, 241)
+}
+
+.user-name:hover {
   color: rgb(164, 205, 238);
   opacity: 80%;
 }

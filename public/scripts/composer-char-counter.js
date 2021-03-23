@@ -1,24 +1,26 @@
 $(document).ready(function() {
 
 
-  $(".name-msg").mouseenter(
+  $(".tweet").mouseover(
     function() {
-      $("p", this).addClass("b");
+      $(this).addClass("p");
     }
   );
-
-  function myFunction() {
-    var x = document.getElementById("username");
-    if (window.getComputedStyle(x).visibility === "hidden") {
-      x.style.visibility = "visible";
-    }
-  }
 
   $("button").click(function() {
     $(".new-tweet").animate({
       height: 'toggle'
     });
   });
+
+  $("input")
+    .keyup(function() {
+      let value = $(this).val();
+      $("p").text(value);
+    })
+    .keyup();
+
+
 
   // $(window).scroll(function() {
   //   if ($(this).scrollTop()) {
@@ -34,7 +36,7 @@ $(document).ready(function() {
   //   }, 1000);
   // });
 
-  
+
 
 
 
@@ -102,15 +104,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
-
-  //   $("#btn").on('click', function() {
-  //     console.log(this); //The this keyword is a reference to the button
-  //   });
 
   //   $("#btn").on('click', () => {
   //     console.log(this); //The this keyword here refers to something else!
