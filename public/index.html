@@ -23,6 +23,12 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+
+    <link href="/styles/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/styles/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="/styles/fontawesome/css/solid.css" rel="stylesheet">
+
+
   </head>
 
   <body>
@@ -43,19 +49,60 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
         <form action="/tweets/" class="tweet-box-content" method="post">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
-          <br>
-          <div>
-            <button id="tweet" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+
           </div>
+          <div class="update-status">
+            <button id="tweet" type="submit">Tweet</button>
+            <div class="add-extra">
+              <div class="images-more">
+                <span><a href=""><i class="fas fa-fish"></i></a></span>
+                <span><a href=""><i class="fas fa-poll-h"></i></a></span>
+                <span><a href=""><i class="fas fa-user-ninja vanished"></i></span>
+                <span><a href=""><i class="fas fa-calendar-day"></i></a></span>
+              </div>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
         </form>
       </section>
+      <section class="others-tweets">
+        <div class="other-tweets">
+          <div class="profile-msg">
+            <div class="others-profile">
+              <img
+                src="https://images.vexels.com/media/users/3/147101/isolated/preview/b4a49d4b864c74bb73de63f080ad7930-instagram-profile-button-by-vexels.png"
+                alt=''>
+            </div>
+            <div class=" name-msg">
+              <span>
+                <p>Her Name<b><i class="fa fa-check-circle-o"></i>@herusername</b></p>
+              </span>
+            </div>
+          </div>
+          <div class="msg">
+            <textarea name="text" id="tweet-text">Hello world!</textarea>
+          </div>
+          <div class="reaction">
+            <div class="more-options">
+              10 days ago <i class="fa fa-ellipsis-h"></i></div>
+            <div class="intercations">
+              <div class="comments"><i class="far fa-comments"></i>
+              </div>
+              <div class="retweet"><i class="fas fa-retweet"></i>
+              </div>
+              <div class="like"><i class="far fa-heart"></i>
+              </div>
+              <div class="upload"><i class="fas fa-arrow-circle-up"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End of wall-->
+      </section>
+
 
     </main>
 
