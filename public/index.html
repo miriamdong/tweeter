@@ -23,7 +23,7 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
-
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     <link href="/styles/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/styles/fontawesome/css/brands.css" rel="stylesheet">
     <link href="/styles/fontawesome/css/solid.css" rel="stylesheet">
@@ -51,25 +51,49 @@
     <main class="container">
       <section class="new-tweet">
         <form action="/tweets/" class="tweet-box-content" method="post">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <label for="tweet-text">What are you humming about?</label><br>
+          <!-- <textarea id="tweet-text" name="text" autofocus="" oninput="callFunction()" placeholder="What's happening?"
+            spellcheck="false"></textarea> -->
 
-          </div>
+          <textarea id="tweet-text" name="text" onkeyup="charcountupdate(this.value)">
+            </textarea>
+
+          <script>
+            function charcountupdate(str) {
+              // Get length of characters in textarea
+              let lng = str.length;
+              // Get remaining characters (number of characters until 140 is reached)
+              const remaining = 140 - lng;
+              document.getElementById("charcount").innerHTML = remaining;
+              if (remaining < 0) {
+                document.getElementById("charcount").style.color = "red";
+                return remaining + " too many characters";
+              }
+              document.getElementById("charcount").style.color = "grey";
+              return remaining;
+            }
+            // Clear text in textarea with button click
+            function clearContent() {
+              document.getElementById("tweet-text").value = '';
+              charcountupdate();
+            }
+          </script>
+
           <div class="update-status">
             <button id="tweet" type="submit">Tweet</button>
             <div class="add-extra">
               <div class="images-more">
                 <span><a href=""><i class="fas fa-fish"></i></a></span>
                 <span><a href=""><i class="fas fa-poll-h"></i></a></span>
-                <span><a href=""><i class="fas fa-user-ninja vanished"></i></span>
+                <span><a href=""><i class="fa fa-user-circle"></i></span>
                 <span><a href=""><i class="fas fa-calendar-day"></i></a></span>
               </div>
-              <output name="counter" class="counter" for="tweet-text">140</output>
+              <span><output class="counter" id="charcount" for="tweet-text">140</output></span>
             </div>
         </form>
       </section>
-      <section class="others-tweets">
-        <div class="other-tweets">
+      <section class="tweets">
+        <article class="single-tweet">
           <div class="profile-msg">
             <div class="others-profile">
               <img
@@ -78,32 +102,30 @@
             </div>
             <div class=" name-msg">
               <span>
-                <p>Her Name<b><i class="fa fa-check-circle-o"></i>@herusername</b></p>
+                <p>Her Name<b id="user-name">@herusername</b></p>
               </span>
             </div>
           </div>
-          <div class="msg">
-            <textarea name="text" id="tweet-text">Hello world!</textarea>
-          </div>
+          <article class="msg">
+            <h2>Hello world!</h2>
+          </article>
           <div class="reaction">
-            <div class="more-options">
-              10 days ago <i class="fa fa-ellipsis-h"></i></div>
+            <div class="more-options"> 10 days ago <i class="fa fa-ellipsis-h"></i></div>
             <div class="intercations">
               <div class="comments"><i class="far fa-comments"></i>
               </div>
               <div class="retweet"><i class="fas fa-retweet"></i>
               </div>
-              <div class="like"><i class="far fa-heart"></i>
+              <div class="like">
+                <i class="fas fa-heart"></i>
               </div>
               <div class="upload"><i class="fas fa-arrow-circle-up"></i>
               </div>
             </div>
           </div>
-        </div>
+        </article>
         <!--End of wall-->
       </section>
-
-
     </main>
 
   </body>
