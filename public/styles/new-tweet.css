@@ -246,3 +246,46 @@ article.tweet footer div i {
 .bookmark:hover {
   color: aquamarine
 }
+
+
+
+.file {
+  position: relative;
+}
+
+.file>input[type='file'] {
+  display: none
+}
+
+.file>label {
+  cursor: pointer;
+  outline: 0;
+  user-select: none;
+  color: hsl(0, 0%, 29%);
+}
+
+.file>label:hover {
+  border-color: hsl(0, 0%, 21%);
+}
+
+.file>label:active {
+  background-color: hsl(0, 0%, 96%);
+}
+
+.file>label>i {
+  padding-right: 5px;
+}
+
+.file--upload>label {
+  color: hsl(204, 86%, 53%);
+  border-color: hsl(204, 86%, 53%);
+}
+
+.file--upload>label:hover {
+  border-color: hsl(204, 86%, 53%);
+  background-color: hsl(204, 86%, 96%);
+}
+
+.file--upload>label:active {
+  background-color: hsl(204, 86%, 91%);
+}

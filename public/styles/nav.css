@@ -46,7 +46,7 @@ nav button span:after {
   content: '\22BB';
   position: absolute;
   opacity: 0;
-  top: -10;
+  top: 0;
   right: 0;
   transition: 0.5s;
 }
