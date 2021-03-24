@@ -82,29 +82,9 @@
           <!-- <textarea id="tweet-text" name="text" autofocus="" oninput="callFunction()" placeholder="What's happening?"
             spellcheck="false"></textarea> -->
 
-          <textarea id="tweet-text" name="text" autofocus="" onkeyup="charcountupdate(this.value)">
+          <textarea id="tweet-text" maxlength="140">
             </textarea>
 
-          <script>
-            function charcountupdate(str) {
-              // Get length of characters in textarea
-              let lng = str.length;
-              // Get remaining characters (number of characters until 140 is reached)
-              const remaining = 140 - lng;
-              document.getElementById("charcount").innerHTML = remaining;
-              if (remaining < 0) {
-                document.getElementById("charcount").style.color = "red";
-                return remaining + " too many characters";
-              }
-              document.getElementById("charcount").style.color = "grey";
-              return remaining;
-            }
-            // Clear text in textarea with button click
-            function clearContent() {
-              document.getElementById("tweet-text").value = '';
-              charcountupdate();
-            }
-          </script>
           <div class="update-status">
             <button id="tweet" type="submit">Tweet</button>
             <div class="add-extra">
@@ -122,33 +102,7 @@
         </form>
       </section>
       <section class="tweets">
-        <article class="tweet">
-          <header>
-            <img class="avatar"
-              src="https://images.vexels.com/media/users/3/147101/isolated/preview/b4a49d4b864c74bb73de63f080ad7930-instagram-profile-button-by-vexels.png"
-              alt=''>
-            <span class="name">
-              <p>Her Name<b class="user-name">@herusername</b></p>
-            </span>
-          </header>
-          <article class="body">
-            <h3>Hello world!</h3>
-          </article>
-          <footer>
-            <div class="more-options"> 10 days ago <i class="fa fa-ellipsis-h"></i></div>
-            <div class="intercations">
-              <div class="comments"><i class="fas fa-comments"></i>
-              </div>
-              <div class="retweet"><i class="fas fa-retweet"></i>
-              </div>
-              <div class="like">
-                <i class="fas fa-heart"></i>
-              </div>
-              <div class="upload"><i class="fas fa-arrow-circle-up"></i>
-              </div>
-            </div>
-          </footer>
-        </article>
+        <!-- <article class="tweet"> -->
         <!--End of wall-->
       </section>
     </main>
