@@ -35,6 +35,7 @@ textarea {
   background-color: rgb(68, 68, 207);
   padding: 4px;
   color: white;
+
 }
 
 
@@ -45,6 +46,7 @@ textarea {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
 }
 
 #charcount {
@@ -94,11 +96,8 @@ textarea {
   background: #e1f5ff;
 }
 
-.image-video {
-  size: 16px;
-}
 
-.add-extra span button {
+span button {
   margin: 0 30px 0 0;
   padding: 10px 25px;
   border-radius: 30px;
@@ -129,11 +128,15 @@ article.tweet:hover {
 
 article>header.name {
   display: grid;
-  grid-template-columns: 12% 88%;
+  grid-template-columns: 15% 85%;
   margin: 20px 0 10px 0;
   align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  align-content: center;
+  background: none;
   max-height: 100px;
-  width: 100%;
+  width: 95%;
   background-color: inherit;
 }
 
@@ -145,6 +148,8 @@ img.avatar {
   opacity: 0.9;
   cursor: pointer;
   align-items: center;
+  margin-left: auto;
+  padding-right: 5px;
 }
 
 .avatar img:hover {
@@ -155,13 +160,16 @@ span.name {
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  margin-left: auto;
+
 }
 
 article>header.name p {
-  font: size 20px;
+  font-size: 20px;
   color: rgb(156, 203, 241);
   display: flex;
   justify-content: space-between;
+  padding: 2px;
 }
 
 .tweet:hover .user-name {
@@ -289,7 +297,6 @@ i.fas.fa-arrow-circle-up:hover {
 .new-tweet .error {
   font-weight: bold;
   color: red;
-  border-right: 1px solid #6c0202;
   height: 11px;
   padding: 8px 15px 11px 20px;
   position: absolute;
