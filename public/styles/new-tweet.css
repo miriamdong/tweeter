@@ -31,9 +31,8 @@ textarea {
 }
 
 
-
 #tweet {
-  background-color: blue;
+  background-color: rgb(68, 68, 207);
   padding: 4px;
   color: white;
 }
@@ -255,6 +254,8 @@ i.fas.fa-arrow-circle-up:hover {
 }
 
 
+/* style the upload icon */
+
 .file {
   position: relative;
 }
@@ -267,24 +268,16 @@ i.fas.fa-arrow-circle-up:hover {
   cursor: pointer;
   outline: 0;
   user-select: none;
-  color: hsl(0, 0%, 29%);
+  color: rgb(117, 186, 209);
 }
 
-.file>label:hover {
-  border-color: hsl(0, 0%, 21%);
-}
 
 .file>label:active {
-  background-color: hsl(0, 0%, 96%);
+  background-color: lightblue;
 }
 
 .file>label>i {
   padding-right: 5px;
-}
-
-.file--upload>label {
-  color: hsl(204, 86%, 53%);
-  border-color: hsl(204, 86%, 53%);
 }
 
 .file--upload>label:hover {
@@ -292,10 +285,7 @@ i.fas.fa-arrow-circle-up:hover {
   background-color: hsl(204, 86%, 96%);
 }
 
-.file--upload>label:active {
-  background-color: hsl(204, 86%, 91%);
-}
-
+/* style the error message */
 .new-tweet .error {
   font-weight: bold;
   color: red;
