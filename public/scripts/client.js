@@ -58,12 +58,22 @@ const createTweetElement = function(tweet) {
 
 $(document).ready(function() {
 
-  $("<div>").text(textFromUser);
+
+  // add event listener
+
   $('#tweet-form').submit(function(e) {
     e.preventDefault();
     const form = $(this).serialize();
     const tweet = $('textarea').val();
-    if (tweet.length > 140) alert('Too many words!');
+    const $error = $('<span class="error"></span>');
+
+    // Prepare the form for validation - remove previous errors
+    $('span.error').remove();
+    const $parentTag = $(this).parent();
+
+    // alert if submit more than 140 chars
+    if (tweet.length > 140) $parentTag.addClass('error').append($error.text('Too many characters'));
+    if (tweet.length === 0) $parentTag.addClass('error').append($error.text('Required Field'));
     if (tweet.length <= 130) {
       $.ajax({
           url: "/tweets/",
@@ -77,7 +87,16 @@ $(document).ready(function() {
           console.log("error", error);
         });
     }
+
+    $('textarea').focus(function() {
+      $parentTag.removeClass('error');
+      $('span.error', $parentTag).fadeOut();
+    });
+
   });
+
+
+
 
   const loadTweets = () => {
 

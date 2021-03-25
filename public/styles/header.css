@@ -13,6 +13,7 @@ header {
   align-items: center;
   flex-direction: column;
   background-color: #4056a1;
+  background-image: url("https://www.transparenttextures.com/patterns/brilliant.png");
 }
 
 header div {
@@ -37,6 +38,6 @@ b {
 header img {
   display: flex;
   background-color: inherit;
-  background-image: url("https://www.transparenttextures.com/patterns/brilliant.png");
+
 
 }

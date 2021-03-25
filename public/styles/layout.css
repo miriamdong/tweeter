@@ -47,7 +47,8 @@ main {
 
 #go-to-top {
   color: #fff;
-  background: blue;
+  background: rgb(109, 109, 207);
+  background-image: url("https://www.transparenttextures.com/patterns/brilliant.png");
   padding: 5px 3px;
   /* Hidden by default */
   display: none;

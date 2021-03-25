@@ -23,21 +23,11 @@ $(document).ready(function() {
 
     if (num < 0) {
       $('.counter').css("color", "red");
+      return num;
     }
     $('.counter').css("color", "grey");
     return num;
   });
-
-
-
-
-
-  //   $("#btn").on('click', () => {
-  //     console.log(this); //The this keyword here refers to something else!
-  //   });
-  // };
-
-
 
 
 

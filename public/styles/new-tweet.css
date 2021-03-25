@@ -128,7 +128,7 @@ article.tweet:hover {
   border-color: powderblue;
 }
 
-article.tweet header {
+article>header.name {
   display: grid;
   grid-template-columns: 12% 88%;
   margin: 20px 0 10px 0;
@@ -136,7 +136,6 @@ article.tweet header {
   max-height: 100px;
   width: 100%;
   background-color: inherit;
-
 }
 
 
@@ -159,7 +158,7 @@ span.name {
   flex-direction: column;
 }
 
-span.name p {
+article>header.name p {
   font: size 20px;
   color: rgb(156, 203, 241);
   display: flex;
@@ -210,14 +209,14 @@ article.tweet footer {
   opacity: 0.7;
 }
 
-.more-options {
+article.tweet footer .date {
   cursor: pointer;
   display: flex;
   align-items: baseline;
   font-size: 15px;
 }
 
-.more-options:hover {
+article.tweet footer .date:hover {
   background: #666;
 }
 
@@ -229,7 +228,7 @@ article.tweet footer {
   justify-content: flex-end;
 }
 
-article.tweet footer div p {
+article.tweet footer p {
   font: 20px;
 }
 
@@ -239,22 +238,21 @@ article.tweet footer div i {
   border-radius: 50%;
 }
 
-.comment:hover {
+i.fas.fa-comments:hover {
   color: pink;
 }
 
-.retweet:hover {
+i.fas.fa-retweet:hover {
   color: red;
 }
 
-.like:hover {
+i.fas.fa-heart:hover {
   color: blue;
 }
 
-.bookmark:hover {
+i.fas.fa-arrow-circle-up:hover {
   color: aquamarine
 }
-
 
 
 .file {
@@ -296,4 +294,15 @@ article.tweet footer div i {
 
 .file--upload>label:active {
   background-color: hsl(204, 86%, 91%);
+}
+
+.new-tweet .error {
+  font-weight: bold;
+  color: red;
+  border-right: 1px solid #6c0202;
+  height: 11px;
+  padding: 8px 15px 11px 20px;
+  position: absolute;
+  top: 3px;
+  right: 0;
 }
