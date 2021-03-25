@@ -4,9 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
-
-// Test / driver code (temporary). Eventually will get this from the server.
 const data = [{
     "user": { // key: data.user
       "name": "Newton", //  data.user.name
@@ -36,24 +33,6 @@ const renderTweets = function(tweets) {
   // loops through tweets
   tweets.forEach((tweet) => tweet = $('section.tweets').append(createTweetElement(tweet)));
 
-
-
-
-  // $('form').on('submit', (event) => {
-  //   tweets = $(document.createElement('')).addClass('tweets');
-  //   event.preventDefault();
-  //   $.ajax({
-  //     method: 'GET',
-  //   }).then((result) => {
-  //     console.log("result.text", result.text);
-  //     const temp = data(result.text);
-  //     tweets.append(temp);
-  //   }).catch((error) => {
-  //     console.log("error", error);
-  //   });
-
-  // });
-
   // takes return value and appends it to the tweets container
   return (tweets);
 };
@@ -61,13 +40,16 @@ const renderTweets = function(tweets) {
 
 
 const createTweetElement = function(tweet) {
-  // create tweet
+  // create a tweet
 
   let $tweet = $(document.createElement('article')).addClass('tweet');
 
   // create header
   let $header = $(document.createElement('header')).addClass('name');
-  let img = $(document.createElement('img')).addClass("avatar").attr('src', +tweet.user.avatars);
+  let img = $(document.createElement('img')).addClass("avatar").attr('src', tweet.user.avatars);
+
+  console.log(img);
+
   let userName = $(document.createElement('p')).text(tweet.user.name);
   let handle = $(document.createElement('b')).addClass('user-name').text(tweet.user.handle);
 
@@ -90,15 +72,41 @@ const createTweetElement = function(tweet) {
     .append($footer.append(date).append($intercations
       .append(comments).append(retweet).append(like).append(upload))));
   return $tweet;
-
 };
 
 
 $(document).ready(function() {
-  renderTweets(data);
 
-  $('textarea').on('click', (e) => {
+  renderTweets(data);
+  let html = "";
+
+  $('#tweet-form').submit(function(e) {
     e.preventDefault();
-    console.log('anchor');
+    // console.log(this);
+    // console.log($(this).serialize());
+    const form = $(this).serialize();
+    console.log(form);
+    const tweet = $('textarea').val();
+
+    if (tweet.length) {
+      $.ajax({
+        url: "/tweets/",
+        method: 'POST',
+        data: form
+        // success: function(data) {
+        //   $.each(data.tweets, function(key, value) {
+        //     html += createTweetElement(value);
+        //   });
+        //   $('section.tweets').before(html);
+        // }
+        // }).then((json) => {
+        //   const temp = data(json.text);
+        //   tweet.append(temp);
+      }).catch((error) => {
+        console.log("error", error);
+      });
+    }
   });
+
+
 });
