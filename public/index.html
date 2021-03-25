@@ -37,13 +37,12 @@
       <button id="write-tweet"><span><b>Write </b>a new tweet</span></button>
     </nav>
     <!-- Header starts here -->
-    <header>
+    <header class='header'>
       <div>
         <img src="/images/profile-hex.png">
       </div>
-      <br>
       <div>
-        <h2><b>FirstName</b> LastName</h2>
+        <h2><b>Miu</b> Miu</h2>
       </div>
     </header>
 
@@ -76,9 +75,8 @@
     <main class="container">
       <section class="new-tweet">
         <form id="tweet-form" action="/tweets/" class="tweet-box-content" method="POST">
-          <label for="tweet-text">What are you humming about?</label><br>
           <span class="error" name="error-message"></span>
-          <textarea id="tweet-text" name="text" spellcheck=""></textarea>
+          <textarea id="tweet-text" name="text" spellcheck="" placeholder="What are you humming about?"></textarea>
           <div class="update-status">
             <button id="tweet" type="submit">Tweet</button>
             <!-- <div class="add-extra"> -->
