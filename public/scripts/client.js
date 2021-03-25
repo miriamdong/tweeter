@@ -4,34 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [{
-    "user": { // key: data.user
-      "name": "Newton", //  data.user.name
-      "avatars": "https://i.imgur.com/73hZDYK.png", // data.user.avatars
-      "handle": "@SirIsaac" // data.user.handle
-    },
-    "content": { // key: data.content
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    }, // data.content.text
-    "created_at": 1461116232227 // data.created_at
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-
-
 const renderTweets = function(tweets) {
+  // empty the section
+  $('section.tweets').empty();
+
   // loops through tweets
-  tweets.forEach((tweet) => tweet = $('section.tweets').append(createTweetElement(tweet)));
+  tweets.forEach((tweet) => tweet = $('section.tweets').prepend(createTweetElement(tweet)));
 
   // takes return value and appends it to the tweets container
   return (tweets);
@@ -59,7 +37,10 @@ const createTweetElement = function(tweet) {
 
   //create footer
   let $footer = $(document.createElement('footer'));
-  let date = $(document.createElement('p')).addClass('date').text(tweet.created_at);
+
+  const readableDate = new Date(tweet.created_at).toLocaleDateString('en-gb');
+
+  let date = $(document.createElement('p')).addClass('date').text(readableDate);
 
   let $intercations = $(document.createElement('div')).addClass('intercations');
   const comments = $(document.createElement('i')).addClass("fas fa-comments");
@@ -77,36 +58,39 @@ const createTweetElement = function(tweet) {
 
 $(document).ready(function() {
 
-  renderTweets(data);
-  let html = "";
-
+  $("<div>").text(textFromUser);
   $('#tweet-form').submit(function(e) {
     e.preventDefault();
-    // console.log(this);
-    // console.log($(this).serialize());
     const form = $(this).serialize();
-    console.log(form);
     const tweet = $('textarea').val();
-
-    if (tweet.length) {
+    if (tweet.length > 140) alert('Too many words!');
+    if (tweet.length <= 130) {
       $.ajax({
-        url: "/tweets/",
-        method: 'POST',
-        data: form
-        // success: function(data) {
-        //   $.each(data.tweets, function(key, value) {
-        //     html += createTweetElement(value);
-        //   });
-        //   $('section.tweets').before(html);
-        // }
-        // }).then((json) => {
-        //   const temp = data(json.text);
-        //   tweet.append(temp);
-      }).catch((error) => {
-        console.log("error", error);
-      });
+          url: "/tweets/",
+          method: 'POST',
+          data: form
+        }).then(() => {
+          loadTweets();
+          $('textarea').val('');
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
     }
   });
 
+  const loadTweets = () => {
+
+    $.ajax({
+        url: "/tweets/",
+        method: 'GET',
+        dataType: 'json',
+      })
+      .then(function(data) {
+        renderTweets(data);
+      });
+  };
+
+  loadTweets();
 
 });
