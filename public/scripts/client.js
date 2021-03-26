@@ -3,12 +3,6 @@
  * jQuery is already loaded
  */
 
-
-
-
-
-
-
 const renderTweets = function(tweets) {
   // empty the section
   $('section.tweets').empty();
