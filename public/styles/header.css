@@ -38,5 +38,5 @@ b {
 header img {
   display: flex;
   background-color: inherit;
-
+  max-width: 300px;
 }
