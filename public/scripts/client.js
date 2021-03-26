@@ -3,10 +3,15 @@
  * jQuery is already loaded
  */
 
+
+
+
+
+
+
 const renderTweets = function(tweets) {
   // empty the section
   $('section.tweets').empty();
-
   // loops through tweets
   tweets.forEach((tweet) => tweet = $('section.tweets').prepend(createTweetElement(tweet)));
 
@@ -37,8 +42,8 @@ const createTweetElement = function(tweet) {
 
 
   // change the date format to more readable for human
-  const readableDate = new Date(tweet.created_at).toLocaleDateString('en-gb');
 
+  const readableDate = moment(tweet.created_at).fromNow();
   let date = $(document.createElement('p')).addClass('date').text(readableDate);
 
   // append social media buttons
@@ -53,7 +58,9 @@ const createTweetElement = function(tweet) {
     .append($body.append(content))
     .append($footer.append(date).append($intercations
       .append(comments).append(retweet).append(like).append(upload))));
+
   return $tweet;
+
 };
 
 
@@ -83,9 +90,11 @@ $(document).ready(function() {
           method: 'POST',
           data: form
         }).then(() => {
-          // rest the textarea to empty after submittion
+          // reset the textarea to empty after submittion
           loadTweets();
           $('textarea').val('');
+          $('.counter').val('140');
+
         })
         .catch((error) => {
           console.log("error", error);

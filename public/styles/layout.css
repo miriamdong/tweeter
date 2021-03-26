@@ -79,24 +79,6 @@ main {
   /* Add a dark-grey background on hover */
 }
 
-@media (max-width:600px) {
-  .column {
-    width: 100%;
-  }
-
-  header.name {
-    grid-template-columns: 1fr;
-  }
-
-  #tweet {
-    size: 50%;
-  }
-
-  nav {
-    grid-template-columns: 1fr;
-  }
-
-}
 
 @media (max-width:400px) {
   body {
@@ -134,7 +116,7 @@ main {
 @media only screen and (min-width: 768px) {
 
   .container {
-    width: 66.7%;
+    width: 60%;
     float: right
   }
 
@@ -146,14 +128,19 @@ main {
   header img {
     display: flex;
     background-color: inherit;
-
     width: 100%;
     height: auto;
+  }
+
+  body {
+    display: flex;
+    flex-direction: row;
 
   }
 
   body>header {
     background-color: #f4f1ec;
+    max-height: 300px;
   }
 
   header.header {
@@ -181,7 +168,7 @@ main {
     width: 100%;
     margin: 0;
     padding: auto;
-    position: absolute;
+    position: fixed;
   }
 
 }
