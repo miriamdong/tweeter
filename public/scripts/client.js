@@ -17,31 +17,31 @@ const renderTweets = function(tweets) {
 
 const createTweetElement = function(tweet) {
   // create a tweet
-  let $tweet = $(document.createElement('article')).addClass('tweet');
+  const $tweet = $(document.createElement('article')).addClass('tweet');
 
   // create header
-  let $header = $(document.createElement('header')).addClass('name');
-  let img = $(document.createElement('img')).addClass("avatar").attr('src', tweet.user.avatars);
+  const $header = $(document.createElement('header')).addClass('name');
+  const img = $(document.createElement('img')).addClass("avatar").attr('src', tweet.user.avatars);
 
 
-  let userName = $(document.createElement('p')).text(tweet.user.name);
-  let handle = $(document.createElement('b')).addClass('user-name').text(tweet.user.handle);
+  const userName = $(document.createElement('p')).text(tweet.user.name);
+  const handle = $(document.createElement('b')).addClass('user-name').text(tweet.user.handle);
 
   // create body
-  let $body = $(document.createElement('article')).addClass('body');
-  let content = $(document.createElement('h3')).text(tweet.content.text);
+  const $body = $(document.createElement('article')).addClass('body');
+  const content = $(document.createElement('h3')).text(tweet.content.text);
 
   //create footer
-  let $footer = $(document.createElement('footer'));
+  const $footer = $(document.createElement('footer'));
 
 
   // change the date format to more readable for human
 
   const readableDate = moment(tweet.created_at).fromNow();
-  let date = $(document.createElement('p')).addClass('date').text(readableDate);
+  const date = $(document.createElement('p')).addClass('date').text(readableDate);
 
   // append social media buttons
-  let $intercations = $(document.createElement('div')).addClass('intercations');
+  const $intercations = $(document.createElement('div')).addClass('intercations');
   const comments = $(document.createElement('i')).addClass("fas fa-comments");
   const retweet = $(document.createElement('i')).addClass("fas fa-retweet");
   const like = $(document.createElement('i')).addClass("fas fa-heart");
