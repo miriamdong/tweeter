@@ -78,7 +78,7 @@ $(document).ready(function() {
 
     // alert if user submit empty tweet
     if (tweet.length === 0) $parentTag.addClass('error').append($error.text('Required Field'));
-    if (tweet.length <= 130) {
+    if (tweet.length <= 140) {
       $.ajax({
           url: "/tweets/",
           method: 'POST',
